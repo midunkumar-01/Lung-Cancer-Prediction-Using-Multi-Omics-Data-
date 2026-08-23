@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .card {
+            background: #2c2f3b;
+            border-radius: 20px;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4), -8px -8px 15px rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            margin: 30px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+
+        .diagnosis {
+            background-color: #ff5733;
+            color: white;
+        }
+
+        .confidence {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .description {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .recommendation {
+            background-color: #f1c40f;
+            color: #121212;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #56b4f9;
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2a8adf;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">{{ icon }}</div>
+        <h1>Prediction Result</h1>
+
+        <p class="section diagnosis">
+            <i class="fas fa-stethoscope"></i> <strong>Diagnosis:</strong> {{ diagnosis }}
+        </p>
+
+        <p class="section confidence">
+            <i class="fas fa-chart-line"></i> <strong>Confidence Score:</strong> {{ confidence_score }}%
+        </p>
+
+        <p class="section description">
+            <i class="fas fa-info-circle"></i> <strong>Description:</strong> {{ description }}
+        </p>
+
+        <p class="section recommendation">
+            <i class="fas fa-notes-medical"></i> <strong>Recommendation:</strong> {{ recommendation }}
+        </p>
+
+        <a href="{% url 'upload_audio' %}" class="btn"><i class="fas fa-upload"></i> Upload another file</a>
+    </div>
+</body>
+</html>
